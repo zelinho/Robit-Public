@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot Deneme</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="image/robit.png" type="image/png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Damion&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+
+    <div class="sol-el-container">
+        <img src="image/sol-el.png" alt="El" usemap="#solElMap" id="sol-el">
+
+
+        <map name="solElMap" id="sol-el-link">
+            <area target="" alt="" title="" href="#"
+            coords="0,914,260,746,241,690,292,658,439,668,595,562,561,521,417,567,580,334,633,353,765,185,712,146,443,299,148,619,134,572,0,634" 
+                shape="poly">
+        </map>
+        <div id="label-sol" style="display: none;">Yapay Zeka</div>
+    </div>
+
+    <div class="sag-el-container">
+        <img src="image/sag-el.png" alt="El" usemap="#sagElMap" id="sag-el">
+
+
+        <map name="sagElMap" id="sag-el-link">
+            <area target="" alt="" title="" href="#"
+                coords="850,820, 650,750, 685,650, 610,620, 155,330, 300,260, 135,270, 135,230, 270,200, 190,115, 200,90, 571,318, 705,478, 850,540"
+                shape="poly">
+        </map>
+
+
+        <div id="label-sag" style="display: none;">Canlı Destek</div>
+    </div>
+
+    <div id="chatbot-container">
+        <div id="logo-container">
+            <img src="image/robit.png" alt="Logo" id="robit" onclick="openPopup()">
+            <img src="image/logo3.png" alt="Logo" id="logo">
+        </div>
+
+        <div id="chatbox">
+            <div id="messages"></div>
+            <div id="inputContainer">
+                <input type="text" id="userInput" placeholder="Mesajınızı yazın...">
+                <button id="sendButton" onclick="sendMessage()">&#10148;</button>
+            </div>
+        </div>
+        <div id="unlem-kutu" onclick="OpenUnlemPopup()">
+            <h1 id="unlem">!</h1>
+        </div>
+    </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close-button" onclick="closePopup()">&times;</span>
+            <h2 id="baslik">Robit Neler Yapabiliyor?</h2>
+            <ul id="not">
+                <p style="margin-left: -15px; font-weight: 800; font-size: small;">Aklındaki sorulara cevap veririm.
+                    Veri tabanımın yetmediği yerde ise chatgpt yardımıma yetişir. Benim bilmediğim sorularda chatgpt
+                    sana yardımcı olacaktır. Bunu da yetersiz hissedersen sağ el butonuna tıkla ve canlı destek ile
+                    birebir iletişim kur. Cevap verebildiğim örnek sorular:</p>
+                <li>
+                    <p>Lastik Üretim Tarihine Nasıl Bakılır?</p>
+                </li>
+                <li>
+                    <p>Lastik Ebatı Nasıl Öğrenilir?</p>
+                </li>
+                <li>
+                    <p>Lastik Hava Basıncı</p>
+                </li>
+                <li>
+                    <p>RFT Lastik Nedir?</p>
+                </li>
+                <li>
+                    <p>Lastik Ömrü Nasıl Uzatılır?</p>
+                </li>
+                <li>
+                    <p>Hangi İllere Gönderim Yapılıyor?</p>
+                </li>
+                <li>
+                    <p>Lastik Montajı</p>
+                </li>
+                <li>
+                    <p>Lastik Oteli Nedir?</p>
+                </li>
+                <li>
+                    <p>Ücretsiz Lastik Sigortası</p>
+                </li>
+                <li>
+                    <p>Lastik Garantisi</p>
+                </li>
+                <li>
+                    <p>Lastik Hasarı</p>
+                </li>
+                <li>
+                    <p>Lastik Türleri</p>
+                </li>
+                <li>
+                    <p>Kampanyalar</p>
+                </li>
+                <li>
+                    <p>Ödeme Seçenekleri</p>
+                </li>
+                <li>
+                    <p>İletişim Bilgilerimiz</p>
+                </li>
+                <li>
+                    <p>Sıkça Sorulan Sorular</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="UnlemPopup" class="UnlemPopup">
+        <div class="UnlemPopup-content">
+            <span class="close-button" onclick="CloseUnlemPopup()">&times;</span>
+            <h1 style="text-align: center; margin-top: 10px; font-family: Italianno, cursive; ">Hakkında</h1>
+            <p id="hakkında-not">
+                Bu proje, Emre ÖZEL tarafından geliştirilen bir chatbot çözümüdür. Projenin ilk versiyonu,
+                lastik.com.tr web sitesi için Dialogflow ile oluşturulan bir chatbot olarak tasarlanmıştır. Ancak,
+                yalnızca önceden tanımlanmış sorulara yanıt verebilen bir sistemin yetersiz olabileceği düşünülerek,
+                chatbotun daha esnek ve dinamik bir yapıya sahip olması için ChatGPT API entegrasyonu da eklenmiştir. Bu
+                sayede, kullanıcılar sadece belirli konularla sınırlı kalmadan daha geniş bir yelpazede sorulara yanıt
+                alabilmektedir.
+                <br><br>
+                Ayrıca, doğrudan müşteri hizmetleriyle iletişim kurmak isteyen kullanıcılar için Telegram entegrasyonu
+                yapılmıştır. Bu entegrasyon sayesinde, kullanıcılar Emre ÖZEL'in Telegram hesabına doğrudan mesaj
+                göndererek müşteri hizmetlerine ulaşabilmektedir. Bu çok yönlü yapı, müşteri deneyimini geliştirmek ve
+                daha etkileşimli bir hizmet sunmak amacıyla tasarlanmıştır.
+                <br><br><br>
+                Projenin Kullanımı: <br>Web sitesinin başlangıcında açılan chatbot sekmesinde, Dialogflow ve ChatGPT API
+                kullanılarak oluşturulmuş bir chatbot devreye girmektedir. Sağ tarafta bulunan insan eli butonuna
+                tıklandığında, chatbot canlı destek hizmeti sunmak amacıyla Telegram entegrasyonu ile çalışmaya başlar.
+                Sol tarafta yer alan robot el butonuna tekrar tıklandığında ise chatbot, Dialogflow ve ChatGPT API
+                entegrasyonu ile normal çalışma moduna geri döner. Ayrıca, chatbotun üzerindeki robot simgesine
+                tıklandığında, kullanıcıya chatbotun örnek olarak hangi sorulara yanıt verebileceği hakkında bilgi
+                sunulmaktadır. <br><br><br>
+                Dialogflow ile oluşturduğum chatbotun cevap verebileceği sorulara kısa yoldan ulaşmak istiyorsan
+                chatbota "neler biliyorsun" sorusunu sorman yeterli olacaktır.
+            </p>
+        </div>
+    
+    <script src="app.js"></script>
+</div>
+</body>
+</html>

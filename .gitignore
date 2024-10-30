@@ -1,0 +1,4 @@
+# Node.js projeleri için önerilen .gitignore
+node_modules/
+.env
+package-lock.json
